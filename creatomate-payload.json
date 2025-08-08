@@ -1,0 +1,1317 @@
+{
+  "source": {
+    "output_format": "mp4",
+    "width": 1280,
+    "height": 720,
+    "fill_color": "#ffffff",
+    "elements": [
+      {
+        "type": "composition",
+        "track": 1,
+        "duration": 12.068563,
+        "animations": [
+          {
+            "time": "end",
+            "duration": 1,
+            "easing": "quadratic-out",
+            "reversed": true,
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/Zoho/intro.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "start": 0,
+            "duration": 10.068563
+          },
+          {
+            "type": "video",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/intro.mp4",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "start": 10.068563,
+            "duration": "media"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/intro.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "82%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Learn how to connect WPForms to Zoho CRM for efficient data management.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(215,208,208,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "duration": 12.068563,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/wpforms-integration.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step1.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Access the Integrations tab in WPForms settings.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/add-new-account.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step2.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Initiate Zoho CRM integration by adding a new account.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/sign-in-with-email.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step3.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Sign in to your Zoho account using email or mobile.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/sign-up-now.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step4.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Create a new Zoho account if needed.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/accept-request.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step5.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Authorize WPForms to access Zoho CRM data.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/connected-status.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step6.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Confirm the successful connection to Zoho CRM.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/add-new-connection.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step7.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Create a new connection for Zoho CRM.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/click-ok.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step8.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Save your new connection with a nickname.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/select-account.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step9.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Choose an account for the Zoho CRM connection.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/action-to-perform.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step10.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Choose 'Create/Update Contact' for contact management.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/create-update-contact-action.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step11.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Complete the fields for new contact creation.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/create-update-contact.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step12.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Add a note to the Zoho CRM connection.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/tag-icon.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step13.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Map custom fields between Zoho CRM and form fields.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/custom-fields-contact.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step14.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Choose 'Create/Update Lead' for managing leads.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/create-update-lead.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step15.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Fill in the necessary fields for new lead creation.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/create-update-lead-fields.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step16.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Add a note to the lead's information.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/tag-icon.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step17.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Map custom fields for lead information.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/custom-fields-contact.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step18.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Choose 'Delete Contact' to remove a contact.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "stroke_color": "#E05F06",
+        "stroke_width": "0.3 vmin",
+        "border_radius": "1.4 vmin",
+        "shadow_color": "rgba(182,182,182,0.25)",
+        "animations": [
+          {
+            "time": 0,
+            "duration": 0.4,
+            "easing": "quadratic-out",
+            "type": "fade"
+          }
+        ],
+        "elements": [
+          {
+            "type": "image",
+            "source": "https://wpforms.com/wp-content/uploads/2025/07/delete-contact.png",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "contain",
+            "shadow_color": "rgba(220,220,220,0.25)"
+          },
+          {
+            "type": "audio",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/step19.mp3",
+            "start": 0
+          },
+          {
+            "type": "text",
+            "track": 3,
+            "z_index": 0,
+            "x": "50%",
+            "y": "90%",
+            "width": "82%",
+            "height": "35%",
+            "x_alignment": "50%",
+            "y_alignment": "50%",
+            "text": "Provide the email to delete a contact from Zoho CRM.",
+            "font_family": "Lato",
+            "font_size": "5.9 vmin",
+            "background_color": "rgba(213,213,213,0)",
+            "background_x_padding": "31%",
+            "background_y_padding": "17%",
+            "background_border_radius": "31%",
+            "fill_color": "#ffffff",
+            "stroke_color": "#3c3b3b",
+            "stroke_width": "0.8 vmin",
+            "shadow_color": "rgba(0,0,0,0.1)",
+            "start": 0,
+            "animations": [
+              {
+                "time": 0,
+                "duration": 1,
+                "easing": "quadratic-out",
+                "type": "text-appear"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "composition",
+        "track": 1,
+        "elements": [
+          {
+            "type": "video",
+            "source": "https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/outro.mp4",
+            "x": "50%",
+            "y": "50%",
+            "width": "100%",
+            "height": "100%",
+            "fit": "cover",
+            "start": 0,
+            "duration": "media"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+const fs = require('fs');
+const { OpenAI } = require('openai');
+
+const openai = new OpenAI({
+  apiKey: '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'
+});
+
+// Load raw HTML content
+const html = fs.readFileSync('zoho-content.html', 'utf-8');
+
+// Count images
+const imageDescriptions = JSON.parse(fs.readFileSync('zoho-image-descriptions.json', 'utf-8'));
+const imageCount = imageDescriptions.length;
+const totalScenes = imageCount + 2; // 2 images for intro (approx)
+
+// Prompt body with dynamic count instruction
+const dynamicInstruction = `
+We have ${imageDescriptions.length} screenshots, each with this description:
+${imageDescriptions.map((d,i) => `${i+1}. "${d.description}"`).join('\n')}
+
+Please produce:
+
+1. An **intro** object with:
+   • **narration** of exactly three sentences:
+     1. A warm welcome (e.g. "Welcome, everyone! Today we're going to...").
+     2. One sentence describing what this feature/tutorial is about. Determine this from the HTML of the doc. (e.g. "This powerful feature allows you to automatically send lead information from your forms directly to your Zoho account.").
+     3. The exact sentence: "Before we begin, make sure you have WPForms installed and activated on your site"
+   • **subtitle** of one clear sentence summarizing the tutorial topic.
+
+2. Exactly ${imageDescriptions.length} **steps**. For each step:
+   • **narration** that is one to two conversational sentences:
+     – Start with a transition word (“First up,” “Next,” “Once done,” etc)  
+     – Sentence 1 tells the user exactly what to do (e.g. "First up, go to your WPForms settings and click on the Integrations tab.").  
+     – If you need a second sentence, begin with “Once there,” or “Then,” to describe what they see or the next click.
+   • **subtitle** of one full sentence (6–15 words) that a user could follow on its own.
+
+Output valid JSON in this format:
+{
+  "intro": {
+    "narration": "...",
+    "subtitle": "..."
+  },
+  "steps": [
+    {
+      "step": 1,
+      "narration": "...",
+      "screenshot": "step1.png",
+      "subtitle": "..."
+    },
+    …
+  ]
+}
+  HTML content:
+"""${html}"""
+`;
+
+(async () => {
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{ role: 'user', content: dynamicInstruction }],
+      temperature: 0.5
+    });
+
+    const match = completion.choices[0].message.content.match(/\{[\s\S]*\}/);
+    const json = JSON.parse(match[0]);
+
+    fs.writeFileSync('narrationSteps.json', JSON.stringify(json, null, 2));
+    console.log(`✅ Saved narrationSteps.json with ${json.steps.length} steps + intro`);
+  } catch (err) {
+    console.error('❌ Error:', err.message);
+  }
+})();

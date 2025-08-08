@@ -1,0 +1,122 @@
+{
+  "intro": {
+    "narration": "Welcome, everyone! Today we're going to explore how to connect WPForms with Zoho CRM to streamline your data collection process. Before we begin, make sure you have WPForms installed and activated on your site.",
+    "subtitle": "Learn how to connect WPForms to Zoho CRM for efficient data management."
+  },
+  "steps": [
+    {
+      "step": 1,
+      "narration": "First up, go to your WPForms settings and click on the Integrations tab.",
+      "screenshot": "step1.png",
+      "subtitle": "Access the Integrations tab in WPForms settings."
+    },
+    {
+      "step": 2,
+      "narration": "Next, click on '+ Add New Account' to start integrating Zoho CRM with WPForms.",
+      "screenshot": "step2.png",
+      "subtitle": "Initiate Zoho CRM integration by adding a new account."
+    },
+    {
+      "step": 3,
+      "narration": "Now, enter your email or mobile number and click 'Next' to sign in to Zoho.",
+      "screenshot": "step3.png",
+      "subtitle": "Sign in to your Zoho account using email or mobile."
+    },
+    {
+      "step": 4,
+      "narration": "If you don't have a Zoho account, click 'Sign up now' to create one.",
+      "screenshot": "step4.png",
+      "subtitle": "Create a new Zoho account if needed."
+    },
+    {
+      "step": 5,
+      "narration": "Once there, click 'Accept' to allow WPForms access to your Zoho CRM data.",
+      "screenshot": "step5.png",
+      "subtitle": "Authorize WPForms to access Zoho CRM data."
+    },
+    {
+      "step": 6,
+      "narration": "Then, you'll see a 'Connected' status indicating a successful connection to Zoho CRM.",
+      "screenshot": "step6.png",
+      "subtitle": "Confirm the successful connection to Zoho CRM."
+    },
+    {
+      "step": 7,
+      "narration": "Next, click 'Add New Connection' to create a new Zoho CRM connection.",
+      "screenshot": "step7.png",
+      "subtitle": "Create a new connection for Zoho CRM."
+    },
+    {
+      "step": 8,
+      "narration": "Enter a nickname for your connection and click 'OK' to save it.",
+      "screenshot": "step8.png",
+      "subtitle": "Save your new connection with a nickname."
+    },
+    {
+      "step": 9,
+      "narration": "Now, select an account from the dropdown to establish the Zoho CRM connection.",
+      "screenshot": "step9.png",
+      "subtitle": "Choose an account for the Zoho CRM connection."
+    },
+    {
+      "step": 10,
+      "narration": "Then, select 'Create/Update Contact' from the action dropdown to manage contacts.",
+      "screenshot": "step10.png",
+      "subtitle": "Choose 'Create/Update Contact' for contact management."
+    },
+    {
+      "step": 11,
+      "narration": "Fill in the required fields for contact creation, including Email and Name.",
+      "screenshot": "step11.png",
+      "subtitle": "Complete the fields for new contact creation."
+    },
+    {
+      "step": 12,
+      "narration": "Click the tag icon to add a note to your Zoho CRM connection.",
+      "screenshot": "step12.png",
+      "subtitle": "Add a note to the Zoho CRM connection."
+    },
+    {
+      "step": 13,
+      "narration": "Once there, map custom fields by selecting Zoho CRM fields and form field values.",
+      "screenshot": "step13.png",
+      "subtitle": "Map custom fields between Zoho CRM and form fields."
+    },
+    {
+      "step": 14,
+      "narration": "Next, select 'Create/Update Lead' from the action dropdown for lead management.",
+      "screenshot": "step14.png",
+      "subtitle": "Choose 'Create/Update Lead' for managing leads."
+    },
+    {
+      "step": 15,
+      "narration": "Complete the fields for lead creation, including Email, Lead Name, and Company.",
+      "screenshot": "step15.png",
+      "subtitle": "Fill in the necessary fields for new lead creation."
+    },
+    {
+      "step": 16,
+      "narration": "Then, click the tag icon to add a note to the lead information.",
+      "screenshot": "step16.png",
+      "subtitle": "Add a note to the lead's information."
+    },
+    {
+      "step": 17,
+      "narration": "Map custom fields for leads by selecting Zoho CRM fields and form field values.",
+      "screenshot": "step17.png",
+      "subtitle": "Map custom fields for lead information."
+    },
+    {
+      "step": 18,
+      "narration": "To remove a contact, select 'Delete Contact' from the action dropdown.",
+      "screenshot": "step18.png",
+      "subtitle": "Choose 'Delete Contact' to remove a contact."
+    },
+    {
+      "step": 19,
+      "narration": "Finally, enter the email for the contact you wish to delete from Zoho CRM.",
+      "screenshot": "step19.png",
+      "subtitle": "Provide the email to delete a contact from Zoho CRM."
+    }
+  ]
+}
