@@ -4,8 +4,8 @@ const cfg = require('./config');
 
 const openai = new OpenAI({ apiKey: cfg.OPENAI_API_KEY });
 
-const html = fs.readFileSync('zoho-content.html', 'utf-8');
-const imageDescriptions = JSON.parse(fs.readFileSync('zoho-image-descriptions.json', 'utf-8'));
+const html = fs.readFileSync('content.html', 'utf-8');
+const imageDescriptions = JSON.parse(fs.readFileSync('image-descriptions.json', 'utf-8'));
 
 const dynamicInstruction = `
 We have ${imageDescriptions.length} screenshots, each with this description:

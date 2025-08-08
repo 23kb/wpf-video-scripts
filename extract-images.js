@@ -1,7 +1,7 @@
 const fs = require('fs');
 const cheerio = require('cheerio');
 
-const html = fs.readFileSync('zoho-content.html', 'utf-8');
+const html = fs.readFileSync('content.html', 'utf-8');
 const $ = cheerio.load(html);
 
 const imageURLs = [];
@@ -14,5 +14,5 @@ $('img').each((_, img) => {
   }
 });
 
-fs.writeFileSync('zoho-images.json', JSON.stringify(imageURLs, null, 2));
-console.log(`✅ Extracted ${imageURLs.length} image URLs to zoho-images.json`);
+fs.writeFileSync('images.json', JSON.stringify(imageURLs, null, 2));
+console.log(`✅ Extracted ${imageURLs.length} image URLs to images.json`);

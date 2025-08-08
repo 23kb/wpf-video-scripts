@@ -1,0 +1,78 @@
+[
+  {
+    "image_url": "https://example.com/image1.png",
+    "description": "Navigate to 'Integrations' tab in WPForms settings to manage integrations like Constant Contact and Dropbox."
+  },
+  {
+    "image_url": "https://example.com/image2.png",
+    "description": "Click '+ Add New Account' button to integrate Zoho CRM with WPForms."
+  },
+  {
+    "image_url": "https://example.com/image3.png",
+    "description": "Enter email or mobile number and click 'Next' to sign in to Zoho."
+  },
+  {
+    "image_url": "https://example.com/image4.png",
+    "description": "Click 'Sign up now' to create a new Zoho account if you don't have one."
+  },
+  {
+    "image_url": "https://example.com/image5.png",
+    "description": "Click 'Accept' to allow WPForms to access data in your Zoho account."
+  },
+  {
+    "image_url": "https://example.com/image6.png",
+    "description": "Zoho CRM is successfully connected, indicated by the 'Connected' status."
+  },
+  {
+    "image_url": "https://example.com/image7.png",
+    "description": "Click 'Add New Connection' to set up a new Zoho CRM connection in WPForms."
+  },
+  {
+    "image_url": "https://example.com/image8.png",
+    "description": "Enter a nickname for the connection and click 'OK' to proceed."
+  },
+  {
+    "image_url": "https://example.com/image9.png",
+    "description": "Select an account from the 'Account' dropdown to configure Zoho CRM connection."
+  },
+  {
+    "image_url": "https://example.com/image10.png",
+    "description": "Choose 'Create/Update Contact' from the 'Action to Perform' dropdown."
+  },
+  {
+    "image_url": "https://example.com/image11.png",
+    "description": "Fill in mandatory fields like Email, Name, and Contact Owner for Zoho CRM integration."
+  },
+  {
+    "image_url": "https://example.com/image12.png",
+    "description": "Click the tag icon to add a note in the Zoho CRM connection."
+  },
+  {
+    "image_url": "https://example.com/image13.png",
+    "description": "Map custom fields by selecting Zoho CRM fields and corresponding form fields."
+  },
+  {
+    "image_url": "https://example.com/image14.png",
+    "description": "Select 'Create/Update Lead' from the 'Action to Perform' dropdown for Zoho CRM."
+  },
+  {
+    "image_url": "https://example.com/image15.png",
+    "description": "Fill in lead details like Email, Lead Name, and Company for Zoho CRM integration."
+  },
+  {
+    "image_url": "https://example.com/image16.png",
+    "description": "Click the tag icon to add a note in the Zoho CRM connection."
+  },
+  {
+    "image_url": "https://example.com/image17.png",
+    "description": "Map custom fields by selecting Zoho CRM fields and corresponding form fields."
+  },
+  {
+    "image_url": "https://example.com/image18.png",
+    "description": "Select 'Delete Contact' from the 'Action to Perform' dropdown for Zoho CRM."
+  },
+  {
+    "image_url": "https://example.com/image19.png",
+    "description": "Select the email field to identify which contact to delete in Zoho CRM."
+  }
+]

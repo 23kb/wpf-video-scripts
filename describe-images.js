@@ -4,7 +4,7 @@ const cfg = require('./config');
 
 const openai = new OpenAI({ apiKey: cfg.OPENAI_API_KEY });
 
-const images = JSON.parse(fs.readFileSync('zoho-images.json', 'utf-8'));
+const images = JSON.parse(fs.readFileSync('images.json', 'utf-8'));
 const subset = images.slice(0, 20);
 
 const visionPrompt = [
@@ -49,8 +49,8 @@ const visionPrompt = [
     if (!match) throw new Error('No JSON array found in model response');
 
     const parsed = JSON.parse(match[0]);
-    fs.writeFileSync('zoho-image-descriptions.json', JSON.stringify(parsed, null, 2));
-    console.log(`✅ Saved ${parsed.length} image descriptions to zoho-image-descriptions.json`);
+    fs.writeFileSync('image-descriptions.json', JSON.stringify(parsed, null, 2));
+    console.log(`✅ Saved ${parsed.length} image descriptions to image-descriptions.json`);
   } catch (err) {
     console.error('❌ Error:', err.message);
     process.exit(1);

@@ -1,0 +1,314 @@
+<head>
+    <meta charset="utf-8" />
+    <title>WPForms Video Pipeline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- WPForms brand fonts -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&f[]=general-sans@600&display=swap" rel="stylesheet">
+  
+    <style>
+      :root {
+        /* WPForms brand colors */
+        --orange: #E27730;
+        --blue-600: #056AAB;
+        --blue-500: #0399ED;
+        --gray-800: #444444;
+        --gray-600: #777777;
+  
+        /* UI palette built around brand */
+        --bg: #f8fafc;
+        --panel: #ffffff;
+        --panel-alt: #f3f6fa;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --accent: var(--blue-600);
+        --accent-2: var(--blue-500);
+        --ok: #10b981;
+        --err: #dc2626;
+        --border: #e5e7eb;
+        --shadow: 0 1px 3px rgba(0,0,0,0.06);
+      }
+  
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f9fbfd, #f6f9fc 40%, #f8fafc 100%);
+        color: var(--text);
+        font-family: 'Satoshi Variable', 'Satoshi', system-ui, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+  
+      h2, h3, h4, h5, h6 {
+        font-family: 'Satoshi Variable', 'Satoshi', system-ui, sans-serif;
+        font-weight: 700;
+        margin: 0;
+      }
+      h1 {
+        font-family: 'Satoshi Variable', 'Satoshi', system-ui, sans-serif;
+        font-weight: 700;
+        margin: 0;
+        font-size:19px;
+      }
+  
+      button {
+        font-family: 'General Sans Variable', 'General Sans', system-ui, sans-serif;
+        font-weight: 600;
+      } 
+
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      height: 100vh;
+      padding: 18px;
+    }
+
+    header {
+      grid-column: 1/3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .brand img {
+      width: 32px; height: 32px; border-radius: 6px;
+    }
+    .brand h1 {
+      font-size: 16px; margin: 0; color: var(--gray-800);
+    }
+    .pill {
+      font-size: 12px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--panel-alt);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Left column */
+    .left .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    label { font-size: 13px; font-weight: 600; color: var(--muted); }
+    input[type="url"] {
+      width: 100%; padding: 11px 12px;
+      border: 1px solid var(--border); border-radius: 8px; outline: none;
+      background: #fff; color: var(--text); font-size: 14px;
+    }
+    input[type="url"]::placeholder { color: #a0a7b2; }
+
+    .row { display: flex; gap: 10px; align-items: center; }
+    button {
+      padding: 9px 14px; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--panel-alt); color: var(--text); font-size: 14px;
+      cursor: pointer; transition: filter .12s ease, transform .02s ease;
+    }
+    button:hover { filter: brightness(0.98); }
+    button:active { transform: translateY(1px); }
+    button.primary {
+      background: #E27730;
+      border-color: var(--orange);
+      color: #fff;
+    }
+    button.primary:hover { filter: brightness(0.9); }
+
+    .status { margin-top: 8px; display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+    .dot.ok { background: var(--ok); }
+    .dot.err { background: var(--err); }
+    .dot.run { background: var(--accent); }
+
+    /* Progress */
+    .steps { margin-top: 14px; display: grid; gap: 8px; }
+    .step {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--panel-alt); font-size: 13px;
+    }
+    .step.done { border-color: rgba(16,185,129,.35); background: #ecfdf5; }
+    .step.run  { border-color: rgba(3,153,237,.35); background: #e8f4ff; }
+    .step.err  { border-color: rgba(220,38,38,.35); background: #fef2f2; }
+
+    .result { margin-top: 12px; font-size: 13px; }
+    .result a { color: var(--accent); text-decoration: none; }
+
+    /* Right logs */
+    .logs {
+      height: calc(100vh - 120px);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      color: #0f172a;
+      white-space: pre-wrap;
+      box-shadow: inset 0 0 0 1px #f3f4f6;
+    }
+
+    /* Tiny accent divider on the left card */
+    .left { position: relative; }
+    .left::before {
+      content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--accent-2));
+      border-top-left-radius: 10px; border-top-right-radius: 10px;
+    }
+
+    @media (max-width: 1000px) {
+      .wrap { grid-template-columns: 1fr; height: auto; }
+      .logs { height: 45vh; }
+      header { grid-column: 1/2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="/sullie.png" alt="WPForms Sullie" />
+        <h1>WPForms Video Pipeline</h1>
+      </div>
+    </header>
+
+    <!-- Left -->
+    <section class="left card">
+      <div class="field">
+        <label for="docUrl">Documentation URL</label>
+        <input id="docUrl" type="url" placeholder="https://wpforms.com/docs/zoho-crm-addon/" />
+      </div>
+
+      <div class="row">
+        <button id="runBtn" class="primary">Run pipeline</button>
+        <button id="clearBtn">Clear</button>
+      </div>
+
+      <div class="status">
+        <div id="statusDot" class="dot"></div>
+        <div id="statusText">Idle</div>
+      </div>
+
+      <div class="steps" id="steps"></div>
+      <div class="result" id="videoLink"></div>
+    </section>
+
+    <!-- Right -->
+    <section class="card">
+      <div class="logs" id="logs"></div>
+    </section>
+  </div>
+
+  <script>
+    const stepsList = [
+      'scrape-doc',
+      'extract-images',
+      'describe-images',
+      'generate-narration-steps',
+      'generate-voiceovers',
+      'generate-creatomate-payload',
+      'render-video'
+    ];
+
+    const runBtn = document.getElementById('runBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const docUrlInput = document.getElementById('docUrl');
+    const logsEl = document.getElementById('logs');
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    const videoLinkEl = document.getElementById('videoLink');
+    const stepsEl = document.getElementById('steps');
+    const stepEls = {};
+
+    function buildSteps() {
+      stepsEl.innerHTML = '';
+      stepsList.forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'step';
+        row.innerHTML = `<span>${s}</span><span class="state">waiting</span>`;
+        stepsEl.appendChild(row);
+        stepEls[s] = { row, state: row.querySelector('.state') };
+      });
+    }
+    buildSteps();
+
+    function setStatus(msg, cls) {
+      statusText.textContent = msg;
+      statusDot.className = 'dot ' + (cls || '');
+    }
+    function appendLog(line) {
+      logsEl.textContent += line + '\n';
+      logsEl.scrollTop = logsEl.scrollHeight;
+    }
+    function markStep(step, state) {
+      const s = stepEls[step];
+      if (!s) return;
+      s.row.classList.remove('run','done','err');
+      if (state === 'run') { s.row.classList.add('run'); s.state.textContent = 'running'; }
+      if (state === 'done') { s.row.classList.add('done'); s.state.textContent = 'done'; }
+      if (state === 'err') { s.row.classList.add('err'); s.state.textContent = 'error'; }
+    }
+    function resetUI() {
+      logsEl.textContent = '';
+      videoLinkEl.innerHTML = '';
+      buildSteps();
+      setStatus('Idle', '');
+    }
+    function parseLineForProgress(text) {
+      const runMatch = text.match(/--- Running step:\s*([a-z\-]+)/i);
+      if (runMatch) { markStep(runMatch[1], 'run'); setStatus('Running ' + runMatch[1], 'run'); }
+      const doneMatch = text.match(/✓ Done:\s*([a-z\-]+)/i);
+      if (doneMatch) { markStep(doneMatch[1], 'done'); }
+      if (/✗ Pipeline failed/i.test(text)) setStatus('Pipeline failed', 'err');
+    }
+    function parseForStatusUrl(text) {
+      const m = text.match(/Status URL:\s*(https?:\/\/\S+)/i);
+      if (!m) return;
+      const link = m[1];
+      videoLinkEl.innerHTML = `<span>Video status URL: </span><a href="${link}" target="_blank" rel="noopener">${link}</a>`;
+      setStatus('Render queued. Watch the status URL.', 'ok');
+    }
+
+    runBtn.addEventListener('click', () => {
+      const docUrl = docUrlInput.value.trim();
+      if (!docUrl) { setStatus('Please enter a doc URL', 'err'); return; }
+      resetUI();
+      setStatus('Starting run...', 'run');
+      const es = new EventSource(`/run/stream?docUrl=${encodeURIComponent(docUrl)}`);
+      es.onmessage = (e) => {
+        const text = e.data || '';
+        appendLog(text);
+        parseLineForProgress(text);
+        parseForStatusUrl(text);
+        const done = text.match(/\[process exited with code (\d+)\]/i);
+        if (done) {
+          const code = parseInt(done[1], 10);
+          if (code === 0) setStatus('Pipeline finished successfully', 'ok');
+          else setStatus('Pipeline failed. Check logs', 'err');
+          es.close();
+        }
+      };
+      es.onerror = () => {
+        setStatus('Stream error. Is the server running?', 'err');
+        es.close();
+      };
+    });
+
+    clearBtn.addEventListener('click', resetUI);
+  </script>
+</body>
+</html>

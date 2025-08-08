@@ -27,7 +27,7 @@ async function buildPayload() {
   const imageDuration    = audioDuration - videoIntroLength
 
   const narrationData = JSON.parse(fs.readFileSync('narrationSteps.json', 'utf-8'))
-  const imageData     = JSON.parse(fs.readFileSync('zoho-images.json',      'utf-8'))
+  const imageData     = JSON.parse(fs.readFileSync('images.json',      'utf-8'))
 
   const scenes = []
 

@@ -3,9 +3,10 @@ const axios = require('axios');
 const { createClient } = require('@supabase/supabase-js');
 const cfg = require('./config');
 
-const supabase = createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
-// If you later move uploads to a trusted server only, you can use SERVICE_ROLE instead.
-
+const supabase = createClient(
+    cfg.SUPABASE_URL,
+    cfg.SUPABASE_SERVICE_ROLE || cfg.SUPABASE_ANON_KEY
+  );
 const ELEVENLABS_API_KEY = cfg.ELEVENLABS_API_KEY;
 const VOICE_ID = cfg.ELEVENLABS_VOICE_ID;
 

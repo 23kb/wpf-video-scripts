@@ -4,16 +4,29 @@ const fs = require('fs');
 
 async function scrapeWPFormsDoc(url) {
   try {
-    const { data } = await axios.get(url);
+    if (!url) throw new Error('DOC_URL not provided');
+    const { data } = await axios.get(url, { timeout: 30000 });
     const $ = cheerio.load(data);
-
-    const entryContentHTML = $('.entry-content').html();
-
+    const entryContentHTML = $('.entry-content').html() || '';
     fs.writeFileSync('zoho-content.html', entryContentHTML);
-    console.log('✅ Saved raw HTML to zoho-content.html');
+    console.log(`✅ Saved raw HTML to zoho-content.html from ${url}`);
   } catch (error) {
     console.error('❌ Error scraping:', error.message);
+    process.exit(1);
   }
 }
 
-scrapeWPFormsDoc('https://wpforms.com/docs/zoho-crm-addon/');
+// Prefer explicit env first. Fallback to a default if needed.
+const docUrl =
+  process.env.DOC_URL ||
+  (() => {
+    try {
+      const body = JSON.parse(process.env.PIPELINE_REQUEST_BODY || '{}');
+      return body.docUrl;
+    } catch {
+      return null;
+    }
+  })() ||
+  'https://wpforms.com/docs/zoho-crm-addon/';
+
+scrapeWPFormsDoc(docUrl);
