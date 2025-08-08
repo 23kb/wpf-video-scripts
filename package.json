@@ -1,7 +1,9 @@
 {
+  "engines": { "node": "20.x" },
   "name": "wpforms-video-scripts",
   "version": "1.0.0",
   "main": "index.js",
+  
   "scripts": {
     "run:pipeline": "node run-pipeline.js",
     "start": "node server.js",
