@@ -1,10 +1,10 @@
 const fs = require('fs');
 const { OpenAI } = require('openai');
+const cfg = require('./config');
 
-const openai = new OpenAI({ apiKey: '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' });
+const openai = new OpenAI({ apiKey: cfg.OPENAI_API_KEY });
 
 const images = JSON.parse(fs.readFileSync('zoho-images.json', 'utf-8'));
-
 const subset = images.slice(0, 20);
 
 const visionPrompt = [
@@ -44,12 +44,15 @@ const visionPrompt = [
       temperature: 0.4
     });
 
-    const match = response.choices[0].message.content.match(/\[.*\]/s);
-    const parsed = JSON.parse(match[0]);
+    const content = response.choices?.[0]?.message?.content || '';
+    const match = content.match(/\[[\s\S]*\]/);
+    if (!match) throw new Error('No JSON array found in model response');
 
+    const parsed = JSON.parse(match[0]);
     fs.writeFileSync('zoho-image-descriptions.json', JSON.stringify(parsed, null, 2));
     console.log(`✅ Saved ${parsed.length} image descriptions to zoho-image-descriptions.json`);
   } catch (err) {
     console.error('❌ Error:', err.message);
+    process.exit(1);
   }
 })();

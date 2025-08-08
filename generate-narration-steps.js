@@ -1,19 +1,12 @@
 const fs = require('fs');
 const { OpenAI } = require('openai');
+const cfg = require('./config');
 
-const openai = new OpenAI({
-  apiKey: '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'
-});
+const openai = new OpenAI({ apiKey: cfg.OPENAI_API_KEY });
 
-// Load raw HTML content
 const html = fs.readFileSync('zoho-content.html', 'utf-8');
-
-// Count images
 const imageDescriptions = JSON.parse(fs.readFileSync('zoho-image-descriptions.json', 'utf-8'));
-const imageCount = imageDescriptions.length;
-const totalScenes = imageCount + 2; // 2 images for intro (approx)
 
-// Prompt body with dynamic count instruction
 const dynamicInstruction = `
 We have ${imageDescriptions.length} screenshots, each with this description:
 ${imageDescriptions.map((d,i) => `${i+1}. "${d.description}"`).join('\n')}
@@ -62,12 +55,15 @@ Output valid JSON in this format:
       temperature: 0.5
     });
 
-    const match = completion.choices[0].message.content.match(/\{[\s\S]*\}/);
-    const json = JSON.parse(match[0]);
+    const content = completion.choices?.[0]?.message?.content || '';
+    const match = content.match(/\{[\s\S]*\}/);
+    if (!match) throw new Error('No JSON object found in model response');
 
+    const json = JSON.parse(match[0]);
     fs.writeFileSync('narrationSteps.json', JSON.stringify(json, null, 2));
-    console.log(`✅ Saved narrationSteps.json with ${json.steps.length} steps + intro`);
+    console.log(`✅ Saved narrationSteps.json with ${json.steps?.length || 0} steps plus intro`);
   } catch (err) {
     console.error('❌ Error:', err.message);
+    process.exit(1);
   }
 })();
