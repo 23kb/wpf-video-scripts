@@ -8,15 +8,15 @@ async function scrapeWPFormsDoc(url) {
     const { data } = await axios.get(url, { timeout: 30000 });
     const $ = cheerio.load(data);
     const entryContentHTML = $('.entry-content').html() || '';
-    fs.writeFileSync('zoho-content.html', entryContentHTML);
-    console.log(`✅ Saved raw HTML to zoho-content.html from ${url}`);
+    fs.writeFileSync('content.html', entryContentHTML);
+    console.log(`✅ Saved raw HTML to content.html from ${url}`);
   } catch (error) {
     console.error('❌ Error scraping:', error.message);
     process.exit(1);
   }
 }
 
-// Prefer explicit env first. Fallback to a default if needed.
+// Prefer explicit env first. Fallback to request body if needed.
 const docUrl =
   process.env.DOC_URL ||
   (() => {
@@ -26,7 +26,11 @@ const docUrl =
     } catch {
       return null;
     }
-  })() ||
-  'https://wpforms.com/docs/zoho-crm-addon/';
+  })();
+
+if (!docUrl) {
+  console.error('❌ No DOC_URL provided. Please provide a documentation URL.');
+  process.exit(1);
+}
 
 scrapeWPFormsDoc(docUrl);

@@ -2,7 +2,6 @@
     <meta charset="utf-8" />
     <title>WPForms Video Pipeline</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- WPForms brand fonts -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&f[]=general-sans@600&display=swap" rel="stylesheet">
   
     <style>
@@ -133,7 +132,111 @@
     .dot.err { background: var(--err); }
     .dot.run { background: var(--accent); }
 
-    /* Progress */
+    /* Progress System */
+    .progress-container {
+      margin-top: 16px;
+      background: var(--panel-alt);
+      border-radius: 8px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .progress-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .progress-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+    }
+
+    .progress-percentage {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Animated Loader */
+    .loader {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 50%;
+      border-top-color: var(--orange);
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 8px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange), var(--accent-2));
+      border-radius: 3px;
+      transition: width 0.3s ease;
+      width: 0%;
+      position: relative;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .progress-message {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .progress-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Steps */
     .steps { margin-top: 14px; display: grid; gap: 8px; }
     .step {
       display: flex; align-items: center; justify-content: space-between;
@@ -144,22 +247,221 @@
     .step.run  { border-color: rgba(3,153,237,.35); background: #e8f4ff; }
     .step.err  { border-color: rgba(220,38,38,.35); background: #fef2f2; }
 
-    .result { margin-top: 12px; font-size: 13px; }
-    .result a { color: var(--accent); text-decoration: none; }
+    .result { 
+      margin-top: 12px; 
+      font-size: 13px; 
+      padding: 12px;
+      background: var(--panel-alt);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .result a { 
+      color: var(--accent); 
+      text-decoration: none; 
+    }
+
+    .video-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #E27730 0%, #f97316 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(226, 119, 48, 0.3);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .video-button:hover::before {
+      left: 100%;
+    }
+
+    .video-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(226, 119, 48, 0.4);
+      filter: brightness(1.1);
+    }
+
+    .video-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(226, 119, 48, 0.3);
+    }
+
+    .video-button svg {
+      width: 18px;
+      height: 18px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+      color: #65cc80;
+    }
+
+    .video-button-text {
+      font-family: 'General Sans Variable', 'General Sans', system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+      color:white;
+    }
+
+    .video-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .video-status .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+
+    .video-status .dot.ready {
+      background: var(--ok);
+    }
+
+    /* Notification System */
+    .notification {
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 4px solid;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .notification.info {
+      background: rgba(59, 130, 246, 0.1);
+      border-left-color: #3b82f6;
+      color: #1e40af;
+    }
+
+    .notification.warning {
+      background: rgba(245, 158, 11, 0.1);
+      border-left-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .notification svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .notification-message {
+      font-size: 12px;
+      opacity: 0.9;
+    }
 
     /* Right logs */
     .logs {
       height: calc(100vh - 120px);
-      background: #fff;
+      background: linear-gradient(180deg, #fafbfc 0%, #ffffff 100%);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 14px;
+      padding: 16px;
       overflow: auto;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
       font-size: 12px;
-      color: #0f172a;
+      line-height: 1.5;
+      color: #374151;
       white-space: pre-wrap;
-      box-shadow: inset 0 0 0 1px #f3f4f6;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .logs::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    }
+
+    /* Log message styling */
+    .log-line {
+      margin: 2px 0;
+      padding: 2px 0;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .log-line:hover {
+      background-color: rgba(226, 119, 48, 0.05);
+    }
+
+    .log-line.success {
+      color: #059669;
+      font-weight: 500;
+    }
+
+    .log-line.error {
+      color: #dc2626;
+      font-weight: 500;
+    }
+
+    .log-line.info {
+      color: #2563eb;
+      font-weight: 500;
+    }
+
+    .log-line.warning {
+      color: #d97706;
+      font-weight: 500;
+    }
+
+    .log-line.step {
+      color: #7c3aed;
+      font-weight: 600;
+      background: rgba(124, 58, 237, 0.05);
+      padding: 4px 8px;
+      margin: 4px 0;
+      border-radius: 6px;
+      border-left: 3px solid #7c3aed;
+    }
+
+    .log-line.progress {
+      color: #059669;
+      background: rgba(5, 150, 105, 0.05);
+      padding: 4px 8px;
+      margin: 4px 0;
+      border-radius: 6px;
+      border-left: 3px solid #059669;
     }
 
     /* Tiny accent divider on the left card */
@@ -189,21 +491,39 @@
     <!-- Left -->
     <section class="left card">
       <div class="field">
-        <label for="docUrl">Documentation URL</label>
-        <input id="docUrl" type="url" placeholder="https://wpforms.com/docs/zoho-crm-addon/" />
+        <label for="docUrl">WPForms Documentation URL</label>
+        <input id="docUrl" type="url" placeholder="https://wpforms.com/docs/addon-name/" />
       </div>
 
       <div class="row">
-        <button id="runBtn" class="primary">Run pipeline</button>
+        <button id="runBtn" class="primary">Generate Video</button>
         <button id="clearBtn">Clear</button>
       </div>
 
       <div class="status">
         <div id="statusDot" class="dot"></div>
-        <div id="statusText">Idle</div>
+        <div id="statusText">Ready to generate</div>
       </div>
 
-      <div class="steps" id="steps"></div>
+      <!-- Progress System -->
+      <div class="progress-container" id="progressContainer" style="display: none;">
+        <div class="progress-header">
+          <div class="progress-title">
+            <div class="loader" id="progressLoader"></div>
+            Generating your video...
+          </div>
+          <div class="progress-percentage" id="progressPercentage">0%</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-message" id="progressMessage">Initializing...</div>
+        <div class="progress-subtitle" id="progressSubtitle">This may take a few minutes</div>
+        
+        <!-- Notification Container -->
+        <div id="notificationContainer"></div>
+      </div>
+
       <div class="result" id="videoLink"></div>
     </section>
 
@@ -216,13 +536,23 @@
   <script>
     const stepsList = [
       'scrape-doc',
-      'extract-images',
+      'extract-images', 
       'describe-images',
       'generate-narration-steps',
       'generate-voiceovers',
-      'generate-creatomate-payload',
+      'generate-video-payload',
       'render-video'
     ];
+
+    const stepMessages = {
+      'scrape-doc': 'Scraping documentation content...',
+      'extract-images': 'Extracting screenshots from documentation...',
+      'describe-images': 'Analyzing screenshots with AI...',
+      'generate-narration-steps': 'Generating video narration script...',
+      'generate-voiceovers': 'Creating voiceover audio files...',
+      'generate-video-payload': 'Building video composition...',
+      'render-video': 'Rendering final video...'
+    };
 
     const runBtn = document.getElementById('runBtn');
     const clearBtn = document.getElementById('clearBtn');
@@ -231,84 +561,293 @@
     const statusDot = document.getElementById('statusDot');
     const statusText = document.getElementById('statusText');
     const videoLinkEl = document.getElementById('videoLink');
-    const stepsEl = document.getElementById('steps');
-    const stepEls = {};
+    const progressContainer = document.getElementById('progressContainer');
+    const progressFill = document.getElementById('progressFill');
+    const progressPercentage = document.getElementById('progressPercentage');
+    const progressMessage = document.getElementById('progressMessage');
+    const progressSubtitle = document.getElementById('progressSubtitle');
+    const progressLoader = document.getElementById('progressLoader');
+    const notificationContainer = document.getElementById('notificationContainer');
 
-    function buildSteps() {
-      stepsEl.innerHTML = '';
-      stepsList.forEach(s => {
-        const row = document.createElement('div');
-        row.className = 'step';
-        row.innerHTML = `<span>${s}</span><span class="state">waiting</span>`;
-        stepsEl.appendChild(row);
-        stepEls[s] = { row, state: row.querySelector('.state') };
-      });
+    let currentStep = 0;
+    let docName = '';
+    let imageCount = 0;
+
+    function validateWPFormsUrl(url) {
+      const wpformsDocsPattern = /^https:\/\/wpforms\.com\/(docs|developers)\/.+/;
+      return wpformsDocsPattern.test(url);
     }
-    buildSteps();
+
+    function showError(message) {
+      setStatus(message, 'err');
+      // Add visual feedback to input field
+      docUrlInput.style.borderColor = '#dc2626';
+      docUrlInput.style.backgroundColor = '#fef2f2';
+      
+      // Remove error styling after 3 seconds
+      setTimeout(() => {
+        docUrlInput.style.borderColor = '';
+        docUrlInput.style.backgroundColor = '';
+      }, 3000);
+    }
+
+    function clearError() {
+      docUrlInput.style.borderColor = '';
+      docUrlInput.style.backgroundColor = '';
+    }
+
+    function updateProgress(step, message, subtitle = '') {
+      const progress = ((step + 1) / stepsList.length) * 100;
+      progressFill.style.width = `${progress}%`;
+      progressPercentage.textContent = `${Math.round(progress)}%`;
+      progressMessage.textContent = message;
+      progressSubtitle.textContent = subtitle;
+      
+      // Show loader during processing
+      progressLoader.style.display = 'inline-block';
+    }
 
     function setStatus(msg, cls) {
       statusText.textContent = msg;
       statusDot.className = 'dot ' + (cls || '');
     }
+
     function appendLog(line) {
-      logsEl.textContent += line + '\n';
+      // Filter out unwanted messages
+      if (line.includes('[dotenv@') || line.includes('injecting env') || line.includes('prevent committing')) {
+        return;
+      }
+
+      // Create a styled log line
+      const logLine = document.createElement('div');
+      logLine.className = 'log-line';
+      
+      // Apply styling based on content
+      if (line.includes('✅') || line.includes('✓ Done:')) {
+        logLine.classList.add('success');
+      } else if (line.includes('❌') || line.includes('✗')) {
+        logLine.classList.add('error');
+      } else if (line.includes('📊') || line.includes('Status')) {
+        logLine.classList.add('info');
+      } else if (line.includes('⚠️') || line.includes('Warning')) {
+        logLine.classList.add('warning');
+      } else if (line.includes('--- Running step:') || line.includes('Pipeline start')) {
+        logLine.classList.add('step');
+      } else if (line.includes('🔄') || line.includes('Polling') || line.includes('Waiting')) {
+        logLine.classList.add('progress');
+      }
+      
+      logLine.textContent = line;
+      logsEl.appendChild(logLine);
       logsEl.scrollTop = logsEl.scrollHeight;
     }
-    function markStep(step, state) {
-      const s = stepEls[step];
-      if (!s) return;
-      s.row.classList.remove('run','done','err');
-      if (state === 'run') { s.row.classList.add('run'); s.state.textContent = 'running'; }
-      if (state === 'done') { s.row.classList.add('done'); s.state.textContent = 'done'; }
-      if (state === 'err') { s.row.classList.add('err'); s.state.textContent = 'error'; }
-    }
+
     function resetUI() {
       logsEl.textContent = '';
       videoLinkEl.innerHTML = '';
-      buildSteps();
-      setStatus('Idle', '');
+      progressContainer.style.display = 'none';
+      progressLoader.style.display = 'none';
+      clearNotifications();
+      setStatus('Ready to generate', '');
+      currentStep = 0;
+      docName = '';
+      imageCount = 0;
     }
+
     function parseLineForProgress(text) {
+      // Extract document name from URL
+      const urlMatch = text.match(/from (https?:\/\/[^\/]+\/docs\/([^\/]+))/);
+      if (urlMatch && !docName) {
+        docName = urlMatch[2].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      }
+
+      const imageCountMatch = text.match(/✅ Extracted (\d+) image URLs to images\.json/);
+      if (imageCountMatch) {
+        imageCount = parseInt(imageCountMatch[1], 10);
+        console.log(`📊 Detected ${imageCount} images`);
+        
+        if (imageCount > 4) {
+          clearNotifications();
+          showNotification(
+            'warning',
+            'Extended Render Time',
+            `This video will take approximately 5 minutes to render.`,
+            '<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>'
+          );
+        } else if (imageCount > 0) {
+          clearNotifications();
+          showNotification(
+            'info',
+            'Standard Render Time',
+            `This video should render in 2-3 minutes.`,
+            '<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>'
+          );
+        }
+      }
+
       const runMatch = text.match(/--- Running step:\s*([a-z\-]+)/i);
-      if (runMatch) { markStep(runMatch[1], 'run'); setStatus('Running ' + runMatch[1], 'run'); }
+      if (runMatch) {
+        const stepName = runMatch[1];
+        const stepIndex = stepsList.indexOf(stepName);
+        if (stepIndex !== -1) {
+          currentStep = stepIndex;
+          const message = stepMessages[stepName] || `Running ${stepName}...`;
+          updateProgress(currentStep, message);
+          setStatus(`Running ${stepName}`, 'run');
+        }
+      }
+
       const doneMatch = text.match(/✓ Done:\s*([a-z\-]+)/i);
-      if (doneMatch) { markStep(doneMatch[1], 'done'); }
-      if (/✗ Pipeline failed/i.test(text)) setStatus('Pipeline failed', 'err');
+      if (doneMatch) {
+        const stepName = doneMatch[1];
+        const stepIndex = stepsList.indexOf(stepName);
+        if (stepIndex !== -1 && stepIndex === currentStep) {
+          currentStep++;
+          if (currentStep < stepsList.length) {
+            const nextStep = stepsList[currentStep];
+            const message = stepMessages[nextStep] || `Preparing ${nextStep}...`;
+            updateProgress(currentStep, message);
+          }
+        }
+      }
+
+      if (/✗ Pipeline failed/i.test(text)) {
+        setStatus('Generation failed', 'err');
+        progressMessage.textContent = 'Generation failed. Please try again.';
+        progressSubtitle.textContent = 'Check the logs for details';
+        progressLoader.style.display = 'none';
+        clearNotifications();
+      }
     }
+
     function parseForStatusUrl(text) {
       const m = text.match(/Status URL:\s*(https?:\/\/\S+)/i);
       if (!m) return;
       const link = m[1];
-      videoLinkEl.innerHTML = `<span>Video status URL: </span><a href="${link}" target="_blank" rel="noopener">${link}</a>`;
-      setStatus('Render queued. Watch the status URL.', 'ok');
+      
+      videoLinkEl.innerHTML = `
+        <div class="video-status">
+          <div class="dot"></div>
+          <span>Video rendering in progress...</span>
+        </div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">
+          Status URL: <a href="${link}" target="_blank" rel="noopener">${link}</a>
+        </div>
+      `;
+      setStatus('Video rendering in progress', 'ok');
+    }
+
+    function parseForFinalVideoUrl(text) {
+      const m = text.match(/🎬 Final video URL:\s*(https?:\/\/\S+)/i);
+      if (!m) return;
+      const link = m[1];
+      const videoTitle = docName ? `${docName} Video` : 'Your Video';
+      
+      videoLinkEl.innerHTML = `
+        <div class="video-status">
+          <div class="dot ready"></div>
+          <span>Video ready!</span>
+        </div>
+        <a href="${link}" target="_blank" rel="noopener" class="video-button">
+          <svg fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
+          </svg>
+          <span class="video-button-text">View ${videoTitle}</span>
+        </a>
+      `;
+      
+      setStatus('Video ready!', 'ok');
+      progressMessage.textContent = 'Video generation completed!';
+      progressSubtitle.textContent = 'Click the button above to view your video';
+      updateProgress(stepsList.length - 1, 'Video generation completed!', 'Your video is ready to view');
+      // Hide loader when complete
+      progressLoader.style.display = 'none';
+    }
+
+    function showNotification(type, title, message, icon = '') {
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      
+      notification.innerHTML = `
+        ${icon ? `<svg fill="currentColor" viewBox="0 0 20 20">${icon}</svg>` : ''}
+        <div class="notification-content">
+          <div class="notification-title">${title}</div>
+          <div class="notification-message">${message}</div>
+        </div>
+      `;
+      
+      notificationContainer.appendChild(notification);
+    }
+
+    function clearNotifications() {
+      notificationContainer.innerHTML = '';
     }
 
     runBtn.addEventListener('click', () => {
       const docUrl = docUrlInput.value.trim();
-      if (!docUrl) { setStatus('Please enter a doc URL', 'err'); return; }
+      if (!docUrl) { 
+        setStatus('Please enter a documentation URL', 'err'); 
+        return; 
+      }
+      
+      if (!validateWPFormsUrl(docUrl)) {
+        showError('Please only WPForms documentation URL (e.g., https://wpforms.com/docs/addon-name/)');
+        return;
+      }
+
+      clearError(); // Clear any previous error
+
       resetUI();
-      setStatus('Starting run...', 'run');
+      progressContainer.style.display = 'block';
+      setStatus('Starting generation...', 'run');
+      updateProgress(0, 'Initializing video generation...', 'This may take a few minutes');
+      
       const es = new EventSource(`/run/stream?docUrl=${encodeURIComponent(docUrl)}`);
+      
       es.onmessage = (e) => {
         const text = e.data || '';
         appendLog(text);
         parseLineForProgress(text);
         parseForStatusUrl(text);
+        parseForFinalVideoUrl(text);
+        
         const done = text.match(/\[process exited with code (\d+)\]/i);
         if (done) {
           const code = parseInt(done[1], 10);
-          if (code === 0) setStatus('Pipeline finished successfully', 'ok');
-          else setStatus('Pipeline failed. Check logs', 'err');
+          if (code === 0) {
+            setStatus('Generation completed successfully', 'ok');
+          } else {
+            setStatus('Generation failed. Check logs', 'err');
+          }
           es.close();
         }
       };
+      
       es.onerror = () => {
-        setStatus('Stream error. Is the server running?', 'err');
+        setStatus('Connection error. Is the server running?', 'err');
         es.close();
       };
     });
 
     clearBtn.addEventListener('click', resetUI);
+
+    // Add real-time validation
+    docUrlInput.addEventListener('input', () => {
+      const url = docUrlInput.value.trim();
+      if (url && !validateWPFormsUrl(url)) {
+        docUrlInput.style.borderColor = '#f59e0b';
+        docUrlInput.style.backgroundColor = '#fffbeb';
+      } else {
+        clearError();
+      }
+    });
+
+    docUrlInput.addEventListener('blur', () => {
+      const url = docUrlInput.value.trim();
+      if (url && !validateWPFormsUrl(url)) {
+        showError('Please enter a valid WPForms documentation URL');
+      }
+    });
   </script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 // config.js
+// Suppress dotenv messages
+process.env.SUPPRESS_DOTENV_MESSAGES = 'true';
 require('dotenv-safe').config();
 
 const required = [

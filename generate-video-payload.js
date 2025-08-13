@@ -11,7 +11,6 @@ const introAudio        = `${supabaseAudioBase}intro.mp3`
 const introVideo        = 'https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/intro.mp4'
 const outroVideo        = 'https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/outro.mp4'
 
-// probe audio length at runtime
 function getAudioDuration(url) {
   return new Promise((resolve, reject) => {
     ffmpeg.ffprobe(url, (err, meta) => {
@@ -174,8 +173,8 @@ async function buildPayload() {
     }
   }
 
-  fs.writeFileSync('creatomate-payload.json', JSON.stringify(payload, null, 2))
-  console.log(`✅ Payload generated with ${scenes.length} compositions.`)
+  fs.writeFileSync('video-payload.json', JSON.stringify(payload, null, 2))
+  console.log(`✅ Video payload generated with ${scenes.length} compositions.`)
 }
 
 buildPayload().catch(console.error)

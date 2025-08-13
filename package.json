@@ -7,7 +7,7 @@
   "scripts": {
     "run:pipeline": "node run-pipeline.js",
     "start": "node server.js",
-    "env:check": "node -e \"require('dotenv-safe').config(); console.log('Env OK')\"",
+    "env:check": "node -e \"require('dotenv-safe').config(); console.log('Environment variables loaded successfully')\"",
     "scan:secrets": "npx --yes gitleaks@latest detect --no-banner --redact -v"
   },
   "dependencies": {

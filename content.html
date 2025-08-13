@@ -1,43 +1,15 @@
 
-								<div class="wpf-shortcode-addon-banner ">
-			<div>
-				<p class="title">
-					Zoho CRM Addon is an Elite Feature				</p>
-				<p class="sub-title">
-					Unlock Zoho CRM Addon and other powerful features to grow your business.				</p>
-			</div>
-			<a href="https://wpforms.com/pricing/" class="shortcode-button">
-				Get WPForms Elite			</a>
-		</div>
-		
+
+						
+<h2 class="wp-block-heading" id="overview">Overview</h2>
 
 
 
-<p>Want to automatically send lead information from your WordPress forms to your Zoho CRM account? With the Zoho CRM addon for WPForms, you can connect your forms to streamline data collection and save time.</p>
+<p>Would you like to include additional properties in the custom field section when customizing the HubSpot addon? Our HubSpot addon lets you include additional form fields that’ll map to fields in your HubSpot account. However, you can extend this feature to include more field properties not currently supported by the core addon.</p>
 
 
 
-<p>This guide will show you how to install, connect, and set up the Zoho CRM addon for WPForms.</p>
-
-
-
-<div class="wp-block-aioseo-table-of-contents"><ul><li><a href="#install-zoho-crm-addon">Installing and Activating the Zoho CRM Addon</a></li><li><a href="#connect-wpforms-to-zoho-account">Connecting WPForms to Your Zoho Account</a></li><li><a href="#adding-a-zoho-crm-connection-to-your-form">Adding a Zoho CRM Connection to Your Form</a></li><li><a href="#setting-up-connection-actions">Setting Up Connection Actions</a><ul></ul></li><li><a href="#enabling-conditional-logic-optional">Enabling Conditional Logic (Optional)</a></li><li><a href="#frequently-asked-questions">Frequently Asked Questions</a><ul></ul></li></ul></div>
-
-
-
-<div class="wp-block-wpforms-site-blocks-alert-box is-style-warning"><div class="inner-content">
-<p><strong>Requirements</strong>:</p>
-
-
-
-<ul class="wp-block-list">
-<li>You will need the <a href="https://wpforms.com/pricing/">Elite license level</a> to access the Zoho CRM addon</li>
-
-
-
-<li>Ensure that you’ve installed the latest version of WPForms to meet the&nbsp;<a href="https://wpforms.com/docs/why-you-should-always-use-the-latest-version-of-wpforms/#version-requirements">minimum required version</a> for the Zoho CRM addon</li>
-</ul>
-</div></div>
+<p>This guide will cover the steps to add the snippet to your WordPress site. </p>
 
 
 
@@ -45,389 +17,118 @@
 
 
 
-<p>Before you get started, be sure to <a href="https://wpforms.com/docs/install-wpforms-plugin/">install and activate WPForms</a> on your WordPress site. You will also need to <a href="https://www.zoho.com/crm/signup.html" target="_blank" rel="noopener nofollow">sign up for a Zoho account</a> if you don’t already have one.</p>
+<h2 class="wp-block-heading" id="adding-the-snippet">Adding the Snippet</h2>
 
 
 
-<h2 class="wp-block-heading" id="install-zoho-crm-addon">Installing and Activating the Zoho CRM Addon</h2>
+<p>To start, you’ll need to add the snippet below to your site. If you’re not sure how or where to add snippets,&nbsp;<a href="https://wpforms.com/developers/how-to-add-custom-php-or-javascript-for-wpforms/">please review this helpful documentation</a>.</p>
 
 
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: php; title: ; notranslate" title="">/**
+  * Filter whether a specific HubSpot property should be allowed.
+  *
+  * @link https://wpforms.com/developers/adding-contact-properties-for-hubspot-addon/
+  * @since {VERSION}
+  *
+  * @param bool   $allowed  Whether the property is allowed. Default false.
+  * @param mixed  $property The HubSpot property being checked.
+  *
+  * @return bool True to allow the property, false to disallow.
+*/
 
-<p>Once the core WPForms plugin is in place and your <a href="https://wpforms.com/docs/verify-wpforms-license/">license is verified</a>, you’ll be able to <a href="https://wpforms.com/docs/install-activate-wpforms-addons/">quickly install and activate the Zoho CRM addon</a>.</p>
+function wpf_hubspot_add_property( $allow, array $property ) {
 
+	return $property['groupName'] === 'conversioninformation' ? true : $allow;
 
+}
 
-<h2 class="wp-block-heading" id="connect-wpforms-to-zoho-account">Connecting WPForms to Your Zoho Account</h2>
+add_filter( 'wpforms_hubspot_api_allow_property', 'wpf_hubspot_add_property', 10, 2 );
+</pre></div>
 
 
+<p>In the code above, we’re updating HubSpot’s API to include the <code>conversioninformation</code> details as an option when setting custom fields with the <a href="https://wpforms.com/features/hubspot-addon/">HubSpot addon</a>.</p>
 
-<p>The next step is to connect WPForms with your Zoho CRM account. To do this from the WordPress dashboard, you’ll need to go to <strong>WPForms » Settings</strong> and click on the <strong>Integrations</strong> tab.</p>
 
 
+<h2 class="wp-block-heading" id="view-properties">Viewing New Properties</h2>
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/wpforms-integration.png" alt="WPForms integrations tab"></figure>
 
 
+<p>Once the snippet is added, the new property will be added to the list of available fields when customizing custom fields in the HubSpot integration page.</p>
 
-<p>Then, click on the Zoho CRM option to expand its settings. From here, click the&nbsp;<strong>Add New Account&nbsp;</strong>button.</p>
 
 
+<p>To confirm your settings, <a href="https://wpforms.com/docs/creating-first-form/" title="">create a new form</a> or edit an existing one to access the form builder. In the form builder, navigate to <strong>Marketing » HubSpot</strong> and select the <strong>Custom Field Name</strong> dropdown.</p>
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/add-new-account.png" alt="Add new Zoho CRM account button"></figure>
 
 
+<figure class="wp-block-image size-full"><img title="custom-field-name - WPForms" fetchpriority="high" decoding="async" width="1600" height="1070" src="https://wpforms.com/wp-content/uploads/2025/07/custom-field-name.png" alt="HubSpot addon custom field section" class="wp-image-3109706" srcset="https://wpforms.com/wp-content/uploads/2025/07/custom-field-name.png 1600w, https://wpforms.com/wp-content/uploads/2025/07/custom-field-name-300x201.png 300w, https://wpforms.com/wp-content/uploads/2025/07/custom-field-name-1024x685.png 1024w, https://wpforms.com/wp-content/uploads/2025/07/custom-field-name-768x514.png 768w, https://wpforms.com/wp-content/uploads/2025/07/custom-field-name-1536x1027.png 1536w" sizes="(max-width: 1600px) 100vw, 1600px"></figure>
 
-<p>You’ll then be redirected to Zoho’s login page. If you already have a Zoho account, enter your email address and click the <strong>Next</strong> button to sign in.</p>
 
 
+<p>You’ll see all the fields under the property you added listed in the dropdown.</p>
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/sign-in-with-email.png" alt="Zoho sign in page"></figure>
 
 
+<figure class="wp-block-image size-full"><img title="conversion-information - WPForms" loading="lazy" decoding="async" width="1600" height="634" src="https://wpforms.com/wp-content/uploads/2025/07/conversion-information.png" alt="Conversion information section" class="wp-image-3109708" srcset="https://wpforms.com/wp-content/uploads/2025/07/conversion-information.png 1600w, https://wpforms.com/wp-content/uploads/2025/07/conversion-information-300x119.png 300w, https://wpforms.com/wp-content/uploads/2025/07/conversion-information-1024x406.png 1024w, https://wpforms.com/wp-content/uploads/2025/07/conversion-information-768x304.png 768w, https://wpforms.com/wp-content/uploads/2025/07/conversion-information-1536x609.png 1536w" sizes="auto, (max-width: 1600px) 100vw, 1600px"></figure>
 
-<p>If you need to create a new Zoho account, click the <strong>Sign up now</strong> link and fill out the registration form.</p>
 
 
+<p>To learn more about the HubSpot addon, be sure to check our detailed guide on <a href="https://wpforms.com/docs/how-to-install-and-use-the-hubspot-addon-in-wpforms/" title="">installing and using the HubSpot addon in WPForms</a>.</p>
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/sign-up-now.png" alt="Zoho account creation form"></figure>
 
 
+<h2 class="wp-block-heading" id="faqs">Frequently Asked Questions</h2>
 
-<p>Once you’ve logged in to your account, you’ll need to authorize WPForms to access your Zoho CRM data. Review the permissions and click the <strong>Accept</strong> button to continue.</p>
 
 
+<p>Below, we’ve answered some of the top questions about extending contact properties when using the HubSpot addon with WPForms.</p>
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/accept-request.png" alt="Zoho CRM permissions request"></figure>
 
 
+<h4 class="wp-block-heading" id="multiple-properties">Can I allow multiple properties?</h4>
 
-<div class="wp-block-wpforms-site-blocks-alert-box is-style-warning"><div class="inner-content">
-<p class="has-text-align-left"><strong>Note:</strong> You’ll need to set up a company profile in your Zoho CRM account before you can connect your account to WPForms. See our <a href="#no-org" title="">FAQ section</a> for more details.</p>
-</div></div>
 
 
+<p>You can modify the snippet to include additional properties. Here’s the snippet to achieve that:</p>
 
-<p>After that, you’ll be redirected back to your WordPress admin area. You should see the green <strong>Connected</strong> status along with your connection details.</p>
 
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: php; title: ; notranslate" title="">function wpf_hubspot_add_multiple_properties( $allow, array $property ) {
 
+	return in_array( $property['groupName'], [ 'conversioninformation', 'analyticsinformation' ], true ) ? true : $allow;
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/connected-status.png" alt="Zoho CRM connected status"></figure>
+}
 
+add_filter('wpforms_hubspot_api_allow_property', 'wpf_hubspot_add_multiple_properties', 10, 2);
+</pre></div>
 
 
-<h2 class="wp-block-heading" id="adding-a-zoho-crm-connection-to-your-form">Adding a Zoho CRM Connection to Your Form</h2>
+<p>In the snippet above, we are updating the API to include both the <code>conversioninformation</code> and <code>analyticsinformation</code> properties.</p>
 
 
 
-<p>After connecting your account, you’ll be able to add a Zoho CRM integration to specific forms on your site. To do this, you’ll need to <a href="https://wpforms.com/docs/creating-first-form/">create a new form</a> or edit an existing one to open the form builder.</p>
+<h4 class="wp-block-heading" id="all-properties">Can I include all contact properties from HubSpot?</h4>
 
 
 
-<p>In the form builder, go ahead and add the fields you’d like to include in your form. To access the Zoho CRM settings page, go to <strong>Marketing » Zoho CRM</strong>. Once here, click the <strong>Add New Connection</strong> button to create a new integration.</p>
+<p>Yes, you can include all additional contact properties from your HubSpot account to WPForms. To do so, simply add the snippet below to your site:</p>
 
 
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: php; title: ; notranslate" title="">add_filter( 'wpforms_hubspot_api_allow_property', '__return_true' );
+</pre></div>
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/add-new-connection.png" alt="Add new Zoho CRM connection in form builder"></figure>
 
+<p>That’s it! You’ve now learned how to customize the HubSpot addon to include additional contact properties.</p>
 
 
-<p>This will open an overlay where you’ll need to provide a nickname for this connection. You can use any nickname you’d like, as this is for internal reference only. Once you’ve added a nickname, click the <strong>OK</strong> button.</p>
 
+<p>Next, would you like to <a href="https://wpforms.com/developers/how-to-get-the-url-from-the-file-upload-form-field/">access the URL for files uploaded through the File Upload field</a>? Be sure to check our tutorial to learn how.</p>
 
 
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/click-ok.png" alt="Connection nickname"></figure>
 
+<h2 class="wp-block-heading" id="related">Related</h2>
 
 
-<p>After you name the connection, additional settings will appear.</p>
 
-
-
-<h2 class="wp-block-heading" id="setting-up-connection-actions">Setting Up Connection Actions</h2>
-
-
-
-<p>First, use the <strong>Account</strong> dropdown to select the Zoho CRM account that you’ve connected in the <a href="#connect-wpforms-to-zoho-account" title="">previous step</a>.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/select-account.png" alt="Select account"></figure>
-
-
-
-<p>Next, you’ll need to choose an <strong>Action To Perform</strong> from the dropdown. This is the action you want to take when a user fills out your form. The option selected here will also determine which additional settings are displayed.</p>
-
-
-
-<figure class="wp-block-image size-full"><img title="action-to-perform - WPForms" fetchpriority="high" decoding="async" width="1600" height="569" src="https://wpforms.com/wp-content/uploads/2025/07/action-to-perform.png" alt="Action to perform dropdown" class="wp-image-3111287" srcset="https://wpforms.com/wp-content/uploads/2025/07/action-to-perform.png 1600w, https://wpforms.com/wp-content/uploads/2025/07/action-to-perform-300x107.png 300w, https://wpforms.com/wp-content/uploads/2025/07/action-to-perform-1024x364.png 1024w, https://wpforms.com/wp-content/uploads/2025/07/action-to-perform-768x273.png 768w, https://wpforms.com/wp-content/uploads/2025/07/action-to-perform-1536x546.png 1536w" sizes="(max-width: 1600px) 100vw, 1600px"></figure>
-
-
-
-<p>The available actions are:</p>
-
-
-
-<ul class="wp-block-list">
-<li><a href="#create-update-contact" title="">Create/Update Contact</a></li>
-
-
-
-<li><a href="#delete-contact" title="">Delete Contact</a></li>
-
-
-
-<li><a href="#create-update-lead" title="">Create/Update Lead</a></li>
-
-
-
-<li><a href="#delete-lead" title="">Delete Lead</a></li>
-</ul>
-
-
-
-<p>In the following sections, we’ll cover the available actions and their related options in more detail.</p>
-
-
-
-<h3 class="wp-block-heading" id="create-update-contact">Create/Update Contact</h3>
-
-
-
-<p>This action will add a new contact record to your Zoho CRM contact database or update an existing contact.</p>
-
-
-
-<figure class="wp-block-image size-full"><img title="create-update-contact-action - WPForms" loading="lazy" decoding="async" width="1600" height="850" src="https://wpforms.com/wp-content/uploads/2025/07/create-update-contact-action.png" alt="Create update contact action" class="wp-image-3111289" srcset="https://wpforms.com/wp-content/uploads/2025/07/create-update-contact-action.png 1600w, https://wpforms.com/wp-content/uploads/2025/07/create-update-contact-action-300x159.png 300w, https://wpforms.com/wp-content/uploads/2025/07/create-update-contact-action-1024x544.png 1024w, https://wpforms.com/wp-content/uploads/2025/07/create-update-contact-action-768x408.png 768w, https://wpforms.com/wp-content/uploads/2025/07/create-update-contact-action-1536x816.png 1536w" sizes="auto, (max-width: 1600px) 100vw, 1600px"></figure>
-
-
-
-<p>Below is a list of all the options available for this action. Items marked with an asterisk (*) are required:</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/create-update-contact.png" alt="Create/update contact fields"></figure>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Email*</strong>: Choose an Email field from your form.</li>
-
-
-
-<li><strong>Name*</strong>: Select a Name field from your form to identify the contact.</li>
-
-
-
-<li><strong>Contact Owner*</strong>: Select a contact owner to assign to the contact. This will often be the account you connected to this integration.</li>
-
-
-
-<li><strong>Lead Source</strong>: Select a lead source to track where the contact originated.</li>
-
-
-
-<li><strong>Attachments</strong>: Choose a file upload field from your form to attach files to the contact record.</li>
-
-
-
-<li><strong>Note</strong>: Automatically add a note to the contact’s record. Clicking the <strong>tag</strong> icon will display a list of available WPForms <a href="https://wpforms.com/docs/how-to-use-smart-tags-in-wpforms/">Smart Tags</a> you can include in the note.</li>
-</ul>
-
-
-
-<figure class="wp-block-image size-full"><img title="tag-icon - WPForms" loading="lazy" decoding="async" width="1600" height="714" src="https://wpforms.com/wp-content/uploads/2025/07/tag-icon.png" alt="Select tag to show smart tags" class="wp-image-3111290" srcset="https://wpforms.com/wp-content/uploads/2025/07/tag-icon.png 1600w, https://wpforms.com/wp-content/uploads/2025/07/tag-icon-300x134.png 300w, https://wpforms.com/wp-content/uploads/2025/07/tag-icon-1024x457.png 1024w, https://wpforms.com/wp-content/uploads/2025/07/tag-icon-768x343.png 768w, https://wpforms.com/wp-content/uploads/2025/07/tag-icon-1536x685.png 1536w" sizes="auto, (max-width: 1600px) 100vw, 1600px"></figure>
-
-
-
-<p>In the <strong>Custom Fields</strong> section, you can map additional Zoho CRM contact fields to your form fields. This allows you to send more detailed information from your forms to your CRM.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/custom-fields-contact.png" alt="Custom fields section"></figure>
-
-
-
-<h3 class="wp-block-heading" id="create-update-lead">Create/Update Lead</h3>
-
-
-
-<p>This action will add a new lead record to your Zoho CRM lead database or update an existing lead.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/create-update-lead.png" alt="Create/Update Lead settings"></figure>
-
-
-
-<p>Below is a list of all the options available for this action. Items marked with an asterisk (*) are required:</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/create-update-lead-fields.png" alt="Create/Update leads fields"></figure>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Email*</strong>: Choose an Email field from your form.</li>
-
-
-
-<li><strong>Lead Name*</strong>: Select a Name field from your form to identify the lead.</li>
-
-
-
-<li><strong>Company*</strong>: Select a field containing the company name.</li>
-
-
-
-<li><strong>Lead Owner*</strong>: Select a lead owner to assign to the lead.</li>
-
-
-
-<li><strong>Lead Rating</strong>: Select a lead rating to categorize the lead quality.</li>
-
-
-
-<li><strong>Lead Source</strong>: Select a lead source to track where the lead originated.</li>
-
-
-
-<li><strong>Lead Status</strong>: Select a lead status to indicate the lead’s current state.</li>
-
-
-
-<li><strong>Attachments</strong>: Choose a file upload field from your form to attach files to the lead record.</li>
-
-
-
-<li><strong>Note</strong>: Automatically add a note to the lead’s record. You can include smart tags in the note by clicking on the <strong>tag</strong> icon.</li>
-</ul>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/tag-icon.png" alt="Add smart tags"></figure>
-
-
-
-<p>Similarly, you’ll be able to map additional form fields to Zoho CRM fields from the <strong>Custom Fields</strong> section.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/custom-fields-contact.png" alt="Custom field for new leads"></figure>
-
-
-
-<h3 class="wp-block-heading" id="delete-contact">Delete Contact</h3>
-
-
-
-<p>This action will allow a contact to remove their record from your Zoho CRM account.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/delete-contact.png" alt="Delete contact action"></figure>
-
-
-
-<p>To set up this action, simply select the <strong>Email</strong> field from your form.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/delete-contact-email-field.png" alt="Delete Contact settings"></figure>
-
-
-
-<h3 class="wp-block-heading" id="delete-lead">Delete Lead</h3>
-
-
-
-<p>This action will allow a lead to remove their record from your Zoho CRM account.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/delete-lead-action.png" alt="Delete Lead action"></figure>
-
-
-
-<p>To set up this action, select the <strong>Email</strong> field from your form.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/delete-lead-email-field.png" alt="Delete Lead settings"></figure>
-
-
-
-<h2 class="wp-block-heading" id="enabling-conditional-logic-optional">Enabling Conditional Logic (Optional)</h2>
-
-
-
-<p><a href="https://wpforms.com/docs/how-to-use-conditional-logic-with-wpforms/">Conditional logic</a> lets you automatically change certain aspects of your form depending on users’ selections or input.</p>
-
-
-
-<p>As an example, we’ll show you how to use conditional logic to let users choose if they’d like to be added to your Zoho CRM as a lead or contact.</p>
-
-
-
-<p>To set this up, you’ll first need to add a <strong>Checkboxes</strong> field. Then delete other options and leave one with a label like “I’d like to receive updates.”</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/checkbox-option.png" alt="Checkbox field options"></figure>
-
-
-
-<p>Next, go to <strong>Marketing » Zoho CRM</strong> in the form builder and toggle on the <strong>Enable Conditional Logic</strong> option.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/enable-conditional-logic.png" alt="Enable conditional logic"></figure>
-
-
-
-<p>Then, you’ll need to use the dropdowns that appear to set up your conditional logic rule. For this example, we’ve set it to <strong>Process</strong> this connection if <strong>Checkboxes</strong> is <strong>I’d like to receive updates</strong>.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/conditional-logic-rule.png" alt=""></figure>
-
-
-
-<p>This will set your form to only process the Zoho CRM connection if the user checks the <strong>I’d like to receive updates</strong> checkbox.</p>
-
-
-
-<p>Once you’re done customizing your form, be sure to save any changes and <a href="https://wpforms.com/docs/how-to-properly-test-your-wordpress-forms-before-launching-checklist/">test your form</a> before <a href="https://wpforms.com/docs/displaying-forms-on-your-site/" title="">displaying it</a> on your site.</p>
-
-
-
-<h2 class="wp-block-heading" id="frequently-asked-questions">Frequently Asked Questions</h2>
-
-
-
-<p>These are some of the top questions we receive about integrating Zoho CRM with WPForms.</p>
-
-
-
-<div data-schema-only="false" class="wp-block-aioseo-faq" id="multiple-accounts"><h4 class="aioseo-faq-block-question" id="can-i-connect-more-than-one-zoho-account">Can I connect more than one Zoho account?</h4><div class="aioseo-faq-block-answer">
-<p>Yes, you can connect multiple Zoho accounts to WPForms. When setting up the integration in <strong>WPForms » Settings » Integrations</strong>, you can click <strong>Add New Account</strong> to connect additional accounts. Each form connection can use any of your connected accounts.</p>
-
-
-
-<figure class="wp-block-image size-large"><img decoding="async" src="https://wpforms.com/wp-content/uploads/2025/07/add-another-account.png" alt="Add another Zoho CRM connection"></figure>
-</div></div>
-
-
-
-<div data-schema-only="false" class="wp-block-aioseo-faq" id="manage-leads"><h4 class="aioseo-faq-block-question" id="where-can-i-manage-leads-created-through-wpforms">Where can I manage leads created through WPForms?</h4><div class="aioseo-faq-block-answer">
-<p>You can view and manage all leads and contacts created through WPForms by logging into your <a href="https://crm.zoho.com/" target="_blank" rel="noopener nofollow">Zoho CRM dashboard</a>. The data will appear in the appropriate modules (Leads or Contacts) based on the action you configured.</p>
-</div></div>
-
-
-
-<p>That’s it! Now you can connect your WordPress forms to Zoho CRM and automatically manage leads and contacts from your form submissions.</p>
-
-
-
-<p>Next, would you like to capture even more leads? Be sure to check out our guide on <a href="https://wpforms.com/docs/how-to-create-a-popup-form-with-wpforms/">creating a popup form</a> to increase your conversion rates.</p>
+<p>Filter Reference:&nbsp;<a href="https://wpforms.com/developers/wpforms_hubspot_api_allow_property/">wpforms_hubspot_api_allow_property</a></p>
 					

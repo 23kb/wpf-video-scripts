@@ -10,7 +10,7 @@ const steps = [
   { name: 'describe-images',            file: 'describe-images.js' },
   { name: 'generate-narration-steps',   file: 'generate-narration-steps.js' },
   { name: 'generate-voiceovers',        file: 'generate-voiceovers.js' },
-  { name: 'generate-creatomate-payload',file: 'generate-creatomate-payload.js' },
+  { name: 'generate-video-payload',     file: 'generate-video-payload.js' },
   { name: 'render-video',               file: 'render-video.js' },
 ];
 
