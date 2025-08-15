@@ -655,10 +655,11 @@
     }
 
     function parseLineForProgress(text) {
-      // Extract document name from URL
       const urlMatch = text.match(/from (https?:\/\/[^\/]+\/docs\/([^\/]+))/);
       if (urlMatch && !docName) {
-        docName = urlMatch[2].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        let extractedName = urlMatch[2].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        extractedName = extractedName.replace(/Wpforms/g, 'WPForms');
+        docName = extractedName;
       }
 
       const imageCountMatch = text.match(/✅ Extracted (\d+) image URLs to images\.json/);
@@ -760,7 +761,6 @@
       progressMessage.textContent = 'Video generation completed!';
       progressSubtitle.textContent = 'Click the button above to view your video';
       updateProgress(stepsList.length - 1, 'Video generation completed!', 'Your video is ready to view');
-      // Hide loader when complete
       progressLoader.style.display = 'none';
     }
 

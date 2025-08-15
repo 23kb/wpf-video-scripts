@@ -3,3 +3,26 @@
 .env.*.local
 *.env
 npm-debug.log*
+
+# Generated pipeline files (temporary data)
+content.html
+images.json
+image-descriptions.json
+narrationSteps.json
+video-payload.json
+final-video-url.txt
+render-info.json
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo

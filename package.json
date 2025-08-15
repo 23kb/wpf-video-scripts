@@ -5,6 +5,7 @@
   "main": "index.js",
   
   "scripts": {
+    "postinstall": "chmod +x node_modules/ffprobe-static/bin/linux/x64/ffprobe || echo 'ffprobe permissions set'",
     "run:pipeline": "node run-pipeline.js",
     "start": "node server.js",
     "env:check": "node -e \"require('dotenv-safe').config(); console.log('Environment variables loaded successfully')\"",

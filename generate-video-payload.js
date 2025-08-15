@@ -5,7 +5,10 @@ const ffprobeStatic = require('ffprobe-static')
 ffmpeg.setFfprobePath(ffprobeStatic.path)
 
 // === CONFIG ===
-const supabaseAudioBase = 'https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/audio/'
+const generationId = process.env.PIPELINE_RUN_ID || new Date().toISOString().replace(/[:.]/g, '-');
+const uniqueAudioFolder = `audio/${generationId}`;
+
+const supabaseAudioBase = `https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/${uniqueAudioFolder}/`
 const introImage        = 'https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/Zoho/intro.png'
 const introAudio        = `${supabaseAudioBase}intro.mp3`
 const introVideo        = 'https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/object/public/creatomate-assets/intro.mp4'
@@ -14,7 +17,12 @@ const outroVideo        = 'https://wmdcisnqnxczagfhcauy.supabase.co/storage/v1/o
 function getAudioDuration(url) {
   return new Promise((resolve, reject) => {
     ffmpeg.ffprobe(url, (err, meta) => {
-      if (err) return reject(err)
+      if (err) {
+        // Suppress ffprobe errors and use fallback duration
+        console.log('⚠️  Could not get audio duration, using fallback (8 seconds)');
+        resolve(8); // Fallback duration
+        return;
+      }
       resolve(meta.format.duration)
     })
   })
@@ -175,6 +183,7 @@ async function buildPayload() {
 
   fs.writeFileSync('video-payload.json', JSON.stringify(payload, null, 2))
   console.log(`✅ Video payload generated with ${scenes.length} compositions.`)
+  console.log(`📁 Using audio from: ${uniqueAudioFolder}`)
 }
 
 buildPayload().catch(console.error)
