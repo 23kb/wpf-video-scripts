@@ -19,8 +19,8 @@ function getAudioDuration(url) {
     ffmpeg.ffprobe(url, (err, meta) => {
       if (err) {
         // Suppress ffprobe errors and use fallback duration
-        console.log('⚠️  Could not get audio duration, using fallback (8 seconds)');
-        resolve(8); // Fallback duration
+        console.log('⚠️  Could not get audio duration, using fallback (12 seconds)');
+        resolve(12); // Fallback duration
         return;
       }
       resolve(meta.format.duration)
